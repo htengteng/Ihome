@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>爱家-支付成功</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/ihome/reset.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/ihome/success.css">
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="/static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+        <script src="/static/js/ihome/pay_success.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        <div class="header_con">
+            <div class="header">
+                <div class="welcome fl">欢迎来爱家!</div>
+            </div>
+        </div>
+
+        <div class="search_bar clearfix">
+            <a href="index.html" class="logo fl"><img src="/static/images/logo@128x59.png"></a>
+            <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;支付完成</div>
+        </div>
+
+
+
+        <div class="common_list_con clearfix">
+            <div class="order_success">
+                <p><b>订单支付成功</b></p>
+                <p id="htt"></p>
+                <p><a href="{{ url_for('order.my_order') }}">您可以我的订单中查看该订单</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><span><i class="fa fa-copyright"></i></span>爱家租房&nbsp;&nbsp;享受家的温馨</p>
+        </div>
+        </div>
+
+    {#    <script type="javascript">#}
+    {#        $(document).ready(function() {#}
+    {#            alert("黄腾腾");#}
+    {#            $.post('/order/pay_success',#}
+    {#                {'url':document.location.search},#}
+    {#                function (msg) {#}
+    {#                    if (msg.code == 200){#}
+    {#                         $("#htt").innerHTML("您的订单已成功支付，支付交易号："+msg.trade_id)#}
+    {#                    }#}
+    {#                    else {#}
+    {#                        alert("出现错误")#}
+    {#                    }#}
+    {##}
+    {#                });#}
+    {#        })#}
+    {##}
+    {#    </script>#}
+
+    </body>
+</html>

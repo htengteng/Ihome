@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>爱家-订单提交成功</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/ihome/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/ihome/success.css">
+
+{#    <script type="text/javascript" src="js/host.js"></script>#}
+{#    <script type="text/javascript" src="js/vue-2.5.16.js"></script>#}
+{#    <script type="text/javascript" src="js/axios-0.18.0.min.js"></script>#}
+</head>
+<body>
+    <div id="app">
+    <div class="header_con">
+        <div class="header">
+            <div class="welcome fl">欢迎来到支付界面!</div>
+        </div>
+    </div>
+
+    <div class="search_bar clearfix">
+        <a href="index.html" class="logo fl"><img src="/static/images/logo@128x59.png"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;提交订单成功</div>
+    </div>
+
+
+
+    <div class="common_list_con clearfix">
+        <div class="order_success">
+            <p><b>订单提交成功，订单总价<em id="amount">{{data.amount}}</em></b></p>
+            <p>您的订单已成功生成，选择您想要的支付方式，订单号：<div id = "data_id">{{data.id}}</div></p>
+        </div>
+    </div>
+
+    <div class="order_submit clearfix">
+        <a id="sub">去支付</a>
+    </div>
+
+    <div class="footer">
+        <p><span><i class="fa fa-copyright"></i></span>爱家租房&nbsp;&nbsp;享受家的温馨</p>
+    </div>
+    </div>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="/static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script type="text/javascript">
+        var amount = $("#amount").html();
+        var id= $("#data_id").html();
+        console.log(amount,id)
+        $('#sub').click(function () {
+            alert("你好");
+            $.get('/order/payment',
+                {'id':id, 'amount':amount},
+                function (msg) {
+                    if (msg.code == 200){
+                         location.href = msg.imageurl;
+                    }
+                    else {
+                        alert("出现错误")
+                    }
+
+                });
+
+        })
+
+    </script>
+
+</body>
+
+</html>
